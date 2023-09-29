@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobil Lamborghini</title>
+    <style>
+    body{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        
+    }
+        /* Gaya umum untuk mobil */
+        .mobil {
+            width: 340px;
+            height: 150px;
+            background-color: #f00; /* Warna bodi mobil (misalnya merah) */
+            position: relative;
+            border-radius: 10px;
+            border-top-left-radius: 150px; /* Lengkung atas kiri */
+            border-top-right-radius: 1px; /* Lengkung atas kanan */
+         border-bottom: 5px solid grey;
+  z-index: 99;
+  top: -30%;
+        }
+
+        /* Gaya untuk atap mobil */
+        .atap {
+            width: 45%;
+            height: 45px;
+            background-color: #333; /* Warna atap mobil (misalnya hitam) */
+            position: absolute;
+            top: 2;
+            left: 50%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid grey;
+        
+        }
+
+        /* Gaya untuk jendela mobil */
+        .jendela {
+            width: 50px;
+            height: 35px;
+            background-color: #000;
+            
+            top: 0px;
+            left: 50%;
+            margin: 5px;
+            border: 0.1px solid grey;
+            border-radius: 2px;
+        }
+        .pintu {
+            height: 100%;
+            width: 160px;
+            border-top-left-radius: 90%;
+            background-color: blue;
+            border-bottom: 5px solid grey;
+            
+        }
+        .jendela_pintu{
+             height: 50%;
+            width: 115px;
+            border-top-left-radius: 90%;
+            background-color: #333;
+            border: 2px solid grey;
+            position: absolute;
+            left: 25px;
+            top: 10%;
+        }
+
+/* Keyframes untuk animasi rotasi */
+
+@keyframes mundur{
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Ganti nama kelas Anda menjadi sesuai kebutuhan */
+.roda {
+    width: 45px;
+    height: 45px;
+    background-image: url('img/ban.png'); /* Gambar roda mobil */
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+    border-radius: 50%;
+    padding: 5px;
+    animation: mundur 1s linear infinite; /* Menambahkan animasi rotasi */
+}
+
+/* Keyframes untuk animasi rotasi ke kiri */
+@keyframes maju {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+/* Ganti nama kelas Anda menjadi sesuai kebutuhan */
+.roda {
+    width: 45px;
+    height: 45px;
+    background-image: url('img/ban.png'); /* Gambar roda mobil */
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+    border-radius: 50%;
+    padding: 5px;
+    animation: maju 0.80s linear infinite; /* Menambahkan animasi rotasi ke kiri */
+}
+
+
+        /* Gaya untuk roda depan */
+        .roda-depan {
+            left: 50px;
+            bottom: -20px;
+            overflow: hidden;
+        }
+
+        /* Gaya untuk roda belakang */
+        .roda-belakang {
+            right: 30px;
+            bottom: -20px;
+            overflow: hidden;
+        }
+        
+  
+ .control1 {
+    width: 100%;
+    height: 40%;
+   } 
+   .control1::before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: 0;
+    transform: translateY(50%);
+    width: 100%;
+    height: 250px;
+    background-image: url('img/bg.jpg');
+    background-size: 80px;
+    background-repeat: repeat-x;
+   animation: animateroadR 1s linear infinite;
+
+ 
+}
+   .control1::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    background: #333;
+    bottom: -30px;
+    transform-origin: top;
+    transform: perspective(100%) rotateX(-25deg);
+}
+
+
+@keyframes animateroadR {
+    0% {
+        background-position: 0;
+    }
+    100% {
+        background-position: 160px;
+    }
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px;
+    width: 100%;
+}
+
+.infinite {
+    position: relative;
+    width: 100vh;
+    height: 160px;
+    background: #525252;
+    transform-origin: bottom;
+    }
+.infinite::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 10px;
+    background: #f00;
+    background: linear-gradient(90deg,#fff 0%, #fff 70%, #525252 70%, #525252 100%);
+    background-size: 120px;
+    animation: animateroad 1s linear infinite;
+}
+@keyframes animateroad {
+    0% {
+        background-position: 0;
+    }
+    100% {
+        background-position: 120px;
+    }
+}
+.infinite::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    background: #333;
+    bottom: -30px;
+    transform-origin: top;
+    transform: perspective(100%) rotateX(-25deg);
+}
+
+
+ 
+    
+.tree {
+    position: absolute;
+    width: 100%;
+    height:50px;
+    /*background: #525252;*/
+    transform-origin: bottom;
+    top: 35%;
+    }
+.tree::before {
+    content: '';
+    position: absolute;
+    top: 35%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 50px;
+    background-image: url('img/rumput.png');
+     background-size: 120px;
+     
+   /*
+    background: #f00;
+    background: linear-gradient(90deg,#fff 0%, #fff 70%, #525252 70%, #525252 100%);
+    background-size: 120px;*/
+    
+    animation: animateroadS 4s linear infinite;
+}
+@keyframes animateroadS {
+    0% {
+        background-position: 0;
+    }
+    100% {
+        background-position: 100%;
+    }
+}
+.tree::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    background-image: url('img/rumput.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    bottom: -30px;
+    transform-origin: top;
+    transform: perspective(100%) rotateX(-25deg);
+}
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="control1">
+    
+    <div class="tree"></div>
+
+          
+
+    <!-- Tambahkan lebih banyak pohon sesuai kebutuhan -->
+
+
+</div>
+<div class="container">
+        <div class="infinite">
+            <div class="shadow"></div>
+        </div>
+
+</div>
+      <div class="control" style="width: 90%; height: 100px; position: absolute; border: 10px solid black; top: 70%; display: flex; justify-content: center; align-items: center;">
+     <div id="tombolRem" class="gass" style="color: salmon;
+        font-size: 20px;
+        z-index: 999; margin: 10px; background-color: #333; padding: 10px; width: 50%; text-align: center;">
+        Rem
+     </div>
+     <div id="tombolGas" class="rem" style="color: green;
+        font-size: 20px;
+        z-index: 999; margin: 10px; background-color: #333; padding: 10px; width: 50%; text-align: center;">
+        Gass 
+     </div>
+         
+    </div> 
+
+    <div class="mobil">
+        <div class="pintu"> <div class="jendela_pintu"></div></div>
+        <div class="atap">       
+        <div class="jendela"></div>
+        <div class="jendela"></div>
+        <div class="jendela"></div>
+        <div class="jendela"></div>
+        </div>
+
+        <div class="roda roda-depan"><div class="velg"></div></div>
+        <div class="roda roda-belakang"><div class="velg"></div></div>
+
+   
+    </div>
+    
+ <script src="app.js"></script>
+ <script>
+     // Saat tombol rem ditekan dalam waktu lama
+document.getElementById('tombolRem').addEventListener('mousedown', () => {
+    setTimeout(() => {
+        isLongClick = true;
+        const rodaElements = document.querySelectorAll('.roda');
+        rodaElements.forEach((element) => {
+            element.classList.remove('rotating'); // Hentikan animasi dengan menghapus class
+        });
+        console.log('Long Click! Animasi dihentikan secara halus.');
+    }, 1000); // Ubah durasi sesuai dengan kebutuhan Anda
+});
+
+// Saat tombol rem dilepas
+document.getElementById('tombolRem').addEventListener('mouseup', () => {
+    if (!isLongClick) {
+        const rodaElements = document.querySelectorAll('.roda');
+        rodaElements.forEach((element) => {
+            element.classList.add('rotating'); // Aktifkan kembali animasi dengan menambahkan class
+        });
+        console.log('Klik biasa. Animasi diteruskan.');
+    }
+    isLongClick = false;
+});
+
+ </script>
+
+
+</body>
+</html>
